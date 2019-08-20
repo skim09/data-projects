@@ -1,5 +1,4 @@
-# Climate Change and Counteractive Methods:
-# Air Conditioning Costs and Differences in Cooling Methods
+# Climate Change and Counteractive Methods:<br/>Air Conditioning Costs and Differences in Cooling Methods
 ### An Application of Quantitative Methods in Economics
 
 #### Background
@@ -39,13 +38,12 @@ TEMPGONEAC | 74.62619 | 5.645454 | 50 | 90
 
 DOLELCOL (cost of air conditioning) has a mean of about $237.38, but a high standard deviation of $278.86, showing that the variance in money spent on air conditioning is great. It has a minimum value of $0, and a maximum value of $2860. We also see that the temperature ranges from 50 to 90, but is averaged around 74.6 degrees Fahrenheit, with a small standard deviation of 5.6 degrees.
 
- | NOTMOIST = 0 | NOTMOIST = 1 |
-COOLTYPE | | | Total
+COOLTYPE | NOTMOIST = 0 | NOTMOIST = 1 | Total
 --- | --- | --- | ---
-1 | 3,016 | 540 | 3,556
-2 | 970 | 167 | 1,137
-3 | 211 | 45 | 256
-Total | 4,197 | 752 | 4,949
+**1** | 3,016 | 540 | 3,556
+**2** | 970 | 167 | 1,137
+**3** | 211 | 45 | 256
+**Total** | 4,197 | 752 | 4,949
 
 For our categorical data, we see that about 3600 people use central air conditioning systems, about 1100 people use window/wall/portable units, and about 260 people use both. As for dehumidifiers, about 4900 don’t bother to dehumidify while about 800 do. The most common combination of air conditioner type and dehumidifier usage is using a central air system and not using a dehumidifier, and the least popular combination is using both air conditioning options and also using a dehumidifier.
 
@@ -53,7 +51,7 @@ For our categorical data, we see that about 3600 people use central air conditio
 In this paper I work to answer the question of whether an increase in temperature has a direct effect on the amount of money spent on air conditioning. In parallel with this question, I also look to show the differences in spending between choice of air conditioner types and utilization of a dehumidifier. So, I use a linear regression model with dummy variables attached to account for the categories, and I estimate
 
 <p align="center">
-<img src="static/formula1.png">
+<img src="static/formula1.png" width = "284" height = "35">
 </p>
 
 where y_c is the amount of money spent on air conditioning for a household in 2015, in dollars. Each of the β_i (i=1,2,3,4) are the coefficients for the related variable, calculated through linear regression. x_t is the temperature at the surveyed home and is the independent variable. C_2 is the first instance of the dummy variable of air conditioner type, which is individual window/wall or portable units. C_3 is the second dummy variable of A/C type, which represents households that use both a central system and individual units. D is the final dummy variable corresponding to the use of a dehumidifier. The regression takes default categorical values to start with, and the chosen default dummy values are the central air conditioning system for the variable COOLTYPE and not using a dehumidifier for the variable NOTMOIST.
@@ -61,18 +59,18 @@ where y_c is the amount of money spent on air conditioning for a household in 20
 I run the regression equation on all observations of the data that had the relevant data (no missing values), inputting temperature as the independent variable, cost as the dependent variable, and air conditioner type and dehumidifier usage as the dummy variables. The default values for the dummy variables is 1 for air conditioner type, indicating usage of a central air conditioner system, and 0 for dehumidifier usage, indicating that the household does not use a dehumidifier.
 
 <p align="center">
-<img src="static/formula2.png">
+<img src="static/formula2.png" width = "422" height = "32">
 </p>
 
 The regression produces a table of data as shown below:
 
-Coefficient | Standard Error | t-ratio | p-value
+&nbsp; | Coefficient | Standard Error | t-ratio | p-value
 --- | --- | --- | --- | ---
-Constant | -271.39 | 50.51 | -5.37 | 0.000
-Temperature | 7.90 | 0.67 | 11.74 | 0.000
-Portable Unit | -154.57 | 9.10 | -16.99 | 0.000
-Both | 65.77 | 17.28 | 3.81 | 0.000
-Dehumidifier | -87.25 | 10.58 | -8.25 | 0.000
+**Constant** | -271.39 | 50.51 | -5.37 | 0.000
+**Temperature** | 7.90 | 0.67 | 11.74 | 0.000
+**Portable Unit** | -154.57 | 9.10 | -16.99 | 0.000
+**Both** | 65.77 | 17.28 | 3.81 | 0.000
+**Dehumidifier** | -87.25 | 10.58 | -8.25 | 0.000
 
 #### Results/Analysis
 First, we see that the resulting coefficient for temperature change is 7.90. This means that for every degree increase in Fahrenheit of temperature, on average the American household spends $7.90 more in response to that change (keeping all other variables constant). The following coefficients are related to the categorical variables. The coefficient for using a window/wall/portable air conditioning unit is -154.57, signifying that households that use said units spend $154.57 less than households that use a central system. The coefficient for using both units is 65.77, meaning that households with both types of systems spend $65.77 more on electricity for air conditioning than households that use a central system, and $220.34 more than households that use window/wall/portable air conditioning units. The last coefficient for using a dehumidifier is -87.25, meaning that households that use dehumidifiers spend $87.25 less than households that don’t utilize a dehumidifier during the summer. The constant of -271.39 is insignificant to the analysis. Statistically it means that when the temperature in Fahrenheit during the summer is 0 degrees, then the amount of money spent on electricity is -$271.39. This is a side effect of doing a linear regression on a dataset in which the observations are limited to a value range of between 50 and 90. The constant in this equation serves merely to provide an accurate line of fit through the data.
