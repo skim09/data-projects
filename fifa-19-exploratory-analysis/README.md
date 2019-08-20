@@ -1,6 +1,8 @@
 # FIFA 19: A Study of Different Player Types
-### An Application of Exploratory Data Analysis and Pattern Discovery Techniques to Video Game Data
+### An Application of Data Exploration and Pattern Discovery Techniques to Video Game Data
+
 Sangwon Kim, Changun Pyo, Yuan Wang
+
 5/11/2019
 
 #### Problem Statement
