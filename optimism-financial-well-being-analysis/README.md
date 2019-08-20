@@ -1,5 +1,4 @@
-# Account Half Full
-### The Association between Optimism and Financial Well-Being
+# Account Half Full: The Association between Optimism and Financial Well-Being
 
 <p align="center">
 <img src="static/final_poster.png">
