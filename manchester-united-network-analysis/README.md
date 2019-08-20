@@ -12,7 +12,7 @@ By watching and pausing frequently replays of these two matches I create an edge
 I use the language R and the open-source IDE RStudio to carry out my network analysis. I import the necessary datasets and install/load the packages dplyr and igraph to help with data structuring and network construction. With the data loaded I create an undirected adjacency matrix that tallies the number of passes from each player to all other players in a matrix. I create a graph using the data from this adjacency matrix as the weights of the edges, and then calculate the eigenvector centrality of each of the nodes. I choose the eigenvector centrality as a measure of a player’s importance within the passing network. The eigenvector centrality is a measure of the influence a player has, focusing on connectivity to other nodes that are themselves influential, and thus is a representative measures of which players the passing is centered around. After calculating the eigenvector centrality I return to the first step but create a directed adjacency matrix. I subset the 10 highest passing routes within the adjacency matrix and create a directed, weighted graph with just the passing routes that were played the most. I export the resulting graph as a graphml file so as to visualize in Cytoscape. I repeat this process for all four halves, leaving me with four eigenvector centrality measures, undirected graphs, and directed graphs.
 
 #### Results/Analysis
-The analysis of the results can be carried out in two parts, one for each game. In the initial Newcastle game, the opposition scores twice in the first half and Manchester United find themselves trailing by two goals to one of the weakest teams in the league. The eigenvector centrality calculation shows that the five most influential players in the half are Shaw, Martial, Pogba, Matic, and Smalling. All five of these players play on the left hand side of the formation and towards the back. The two least influential players are Lukaku and Rashford, the striker and right forward, who play up front and towards the right. 
+The analysis of the results can be carried out in two parts, one for each game. In the initial Newcastle game, the opposition scores twice in the first half and Manchester United find themselves trailing by two goals to one of the weakest teams in the league. The eigenvector centrality calculation shows that the five most influential players in the half are Shaw, Martial, Pogba, Matic, and Smalling. All five of these players play on the left hand side of the formation and towards the back. The two least influential players are Lukaku and Rashford, the striker and right forward, who play up front and towards the right.
 
 <p align="center">
 <img src="githubfigures/newcastle/eigen1crop.png" width="282" height="253" title="Figure 1a">
@@ -24,7 +24,7 @@ Figure 1a visualizes this lopsided nature. Each of the nodes represent the playe
 <img src="githubfigures/newcastle/firsthalfAcropped.png" width="279" height="253" title="Figure 1b">
 </p>
 
-Figure 1b contains the graph of the undirected passing channels illustrates this point farther. The edges are colored and the widths of the edges are correlated with the weight of the edges. This means that the darker and wider an edge is, the more passes were given between the two players. The thickest and darkest lines are concentrated on the bottom left hand side, as expected, and the top right hand side contains only weak edges. 
+Figure 1b contains the graph of the undirected passing channels illustrates this point farther. The edges are colored and the widths of the edges are correlated with the weight of the edges. This means that the darker and wider an edge is, the more passes were given between the two players. The thickest and darkest lines are concentrated on the bottom left hand side, as expected, and the top right hand side contains only weak edges.
 
 <p align="center">
 <img src="githubfigures/newcastle/firsthalfcrop.png" width="274" height="264" title="Figure 1c">
@@ -33,19 +33,19 @@ Figure 1b contains the graph of the undirected passing channels illustrates this
 Figure 1c shows the graph of the top 10 directed passing routes during the half. The network is visually empty as the most utilized passing routes reach just one of the four highest attackers. It seems as though the most prevalent passing options involve swinging the ball around the back where it ends up at 23, the left back Luke Shaw, who continuously gives the ball to 11, the left winger Anthony Martial, who is the only reachable attacking option. It is clear that United are incapable of creating moves that reach the front and thus lack real threat, resulting in a poor first half performance.
 
 
-In the second half, United manager José Mourinho implements a tactical change by putting number 6, Paul Pogba, one of the world’s best midfielders and a World Cup winner, as a holding midfielder just above the center backs and pushes the other midfielder higher to put five attackers higher up. Whether it was due to this change or not, an analysis on the second half immediately yields a huge difference in influential passers. The player with the highest eigenvector centrality is Pogba, and the next three influential players are Mata, Martial, and Rashford, three of the five players that play highest up the pitch. The least influential players are Smalling and Matic, the two center backs who play the farthest from the opposition goal, suggesting that United spent more time playing in the higher third than in the defensive third. 
+In the second half, United manager José Mourinho implements a tactical change by putting number 6, Paul Pogba, one of the world’s best midfielders and a World Cup winner, as a holding midfielder just above the center backs and pushes the other midfielder higher to put five attackers higher up. Whether it was due to this change or not, an analysis on the second half immediately yields a huge difference in influential passers. The player with the highest eigenvector centrality is Pogba, and the next three influential players are Mata, Martial, and Rashford, three of the five players that play highest up the pitch. The least influential players are Smalling and Matic, the two center backs who play the farthest from the opposition goal, suggesting that United spent more time playing in the higher third than in the defensive third.
 
 <p align="center">
 <img src="githubfigures/newcastle/eigen2crop.png" width="256" height="253" title="Figure 2a">
 </p>
 
-Figure 2a shows that the influential players are no longer concentrated on the left hand defensive side, but are spread out across the field, utilizing the right wing. 
+Figure 2a shows that the influential players are no longer concentrated on the left hand defensive side, but are spread out across the field, utilizing the right wing.
 
 <p align="center">
 <img src="githubfigures/newcastle/secondhalfacrop.png" width="251" height="253" title="Figure 2b">
 </p>
 
-A look at the undirected passing graph in Figure 2b shows a more total use of all players and passing is not condensed in one corner of the field. When I subset the top 10 highest passes, I see that almost every player is reached except for Lukaku, the forward, as compared to the first half when three of the highest four players were not reached. 
+A look at the undirected passing graph in Figure 2b shows a more total use of all players and passing is not condensed in one corner of the field. When I subset the top 10 highest passes, I see that almost every player is reached except for Lukaku, the forward, as compared to the first half when three of the highest four players were not reached.
 
 <p align="center">
 <img src="githubfigures/newcastle/secondhalfcrop.png" width="261" height="262" title="Figure 2c">
@@ -55,19 +55,19 @@ Figure 2c illustrates that United are playing as more of a cohesive team and bri
 
 ---
 
-The following match is played on October 20th, against Chelsea at the Stamford Bridge stadium. Chelsea is one of the strongest teams in the league and historically one of United’s bitterest rivals. In this game, United once again concede early in the game as Antonio Rüdiger scores and United fail to register any sort of real attempt at goal in the first half. A similar analysis on the first half yields similar results as the Newcastle game. The top 5 most influential players are Martial, Shaw, Matic, Mata, and Pogba. It is a little better than the previous game in that Mata is involved, but 
+The following match is played on October 20th, against Chelsea at the Stamford Bridge stadium. Chelsea is one of the strongest teams in the league and historically one of United’s bitterest rivals. In this game, United once again concede early in the game as Antonio Rüdiger scores and United fail to register any sort of real attempt at goal in the first half. A similar analysis on the first half yields similar results as the Newcastle game. The top 5 most influential players are Martial, Shaw, Matic, Mata, and Pogba. It is a little better than the previous game in that Mata is involved, but
 
 <p align="center">
 <img src="githubfigures/chelsea/cropeigen1.png" width="291" height="253" title="Figure 3a">
 </p>
 
-Figure 3a shows that the influential players are still centered to the left and the right hand side is left wanting. The two least influential players are Smalling and Lukaku, the forward. Lukaku is once again cut off from the team and passes do not seem to be reaching the focal point of attack. Lukaku completes just four passes in the entirety of the first half. 
+Figure 3a shows that the influential players are still centered to the left and the right hand side is left wanting. The two least influential players are Smalling and Lukaku, the forward. Lukaku is once again cut off from the team and passes do not seem to be reaching the focal point of attack. Lukaku completes just four passes in the entirety of the first half.
 
 <p align="center">
 <img src="githubfigures/chelsea/cropfirsthalf1.png" width="294" height="253" title="Figure 3b">
 </p>
 
-Figure 3b is reminiscent of Figure 1b of the Newcastle first half, with the thicker and darker nodes along the bottom and left side, and the top nodes are very weakly connected. 
+Figure 3b is reminiscent of Figure 1b of the Newcastle first half, with the thicker and darker nodes along the bottom and left side, and the top nodes are very weakly connected.
 
 <p align="center">
 <img src="githubfigures/chelsea/cropfirsthalf2.png" width="273" height="230" title="Figure 3c">
@@ -76,19 +76,19 @@ Figure 3b is reminiscent of Figure 1b of the Newcastle first half, with the thic
 Figure 3c takes the subset of the highest passing routes, and it illustrates the point even further as the ball is being played quite often to the left, and both Martial and Shaw are resorted to passing between themselves, trapped on the sideline, unable to move the ball forward or through the middle to the other side.
 
 
-Despite this bleak showing, halftime comes as it always does, and once again the second half is a completely different story. The same analysis on the second half tells a completely different story. Most notably, Romelu Lukaku, the striker, is the most influential player in the squad. The following four are the next highest playing four players on the field. The bottom two players are the two center backs who sit the deepest. 
+Despite this bleak showing, halftime comes as it always does, and once again the second half is a completely different story. The same analysis on the second half tells a completely different story. Most notably, Romelu Lukaku, the striker, is *the most* influential player in the squad. The following four are the next highest playing four players on the field. The bottom two players are the two center backs who sit the deepest. 
 
 <p align="center">
 <img src="githubfigures/chelsea/cropeigen2.png" width="291" height="253" title="Figure 4a">
 </p>
 
-This results in a beautiful horizontally symmetric representation of eigenvector centrality, as shown in Figure 4a. I expect the following network analyses to reflect the change in influence of passing, and Figures 4b and 4c highlight those differences. 
+This results in a beautiful horizontally symmetric representation of eigenvector centrality, as shown in Figure 4a. I expect the following network analyses to reflect the change in influence of passing, and Figures 4b and 4c highlight those differences.
 
 <p align="center">
 <img src="githubfigures/chelsea/cropsecondhalf1.png" width="295" height="253" title="Figure 4b">
 </p>
 
-In Figure 4b, the stronger edges are focused on the top side, suggesting that more passes were played in the attacking half, and for the first time in four halves the passes are concentrated around the top right side, the complete opposite of what was happening in the first half. The subsetted passing routes drive the point home. 
+In Figure 4b, the stronger edges are focused on the top side, suggesting that more passes were played in the attacking half, and for the first time in four halves the passes are concentrated around the top right side, the complete opposite of what was happening in the first half. The subsetted passing routes drive the point home.
 
 <p align="center">
 <img src="githubfigures/chelsea/cropsecondhalf2.png" width="245" height="230" title="Figure 4c">
